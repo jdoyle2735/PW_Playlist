@@ -5,3 +5,7 @@ This is a simple Java program that uses a few classes to manage genres of songs 
 
 ## To run:
 - Interactions.Main 
+
+## Collaborators 
+- Paul (@elucid503) also as "=" b/c my bash shell did not authenticate :(
+- James (@jyodle2735)
