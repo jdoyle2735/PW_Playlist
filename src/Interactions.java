@@ -14,7 +14,7 @@ public class Interactions {
         MenuDisplayer menuDisplayer = new MenuDisplayer(); // This classes methods could also admittedly be static to avoid instantiation
 
         Genres genreSongManager = new Genres();
-        Playlist playlistManager = new Playlist();
+        Playlist globalPlaylist = new Playlist();
 
         menuDisplayer.displayLogo(true);
         menuDisplayer.displayMenu(true);
@@ -103,7 +103,7 @@ public class Interactions {
 
                     } else {
 
-                        playlistManager.create(songs);
+                        globalPlaylist.create(songs);
 
                     }
 
@@ -112,17 +112,47 @@ public class Interactions {
                 }
                 case 5: {
 
-                    playlistManager.display();
+                    globalPlaylist.display();
                     break;
 
                 }
                 case 6: {
 
-                    playlistManager.shuffle();
+                    globalPlaylist.shuffle();
                     break;
 
                 }
+
                 case 7: {
+
+                    System.out.print("Enter genre to add to playlist: ");
+
+                    String genre = scanner.nextLine().trim();
+
+                    if (genre.isEmpty()) {
+
+                        System.out.println("Genre name cannot be empty. Try again.");
+                        break;
+
+                    }
+
+                    ArrayList<String> songs = genreSongManager.getSongsForGenre(genre);
+
+                    if (songs.isEmpty()) {
+
+                        System.out.println("No songs available in this genre.");
+
+                    } else {
+
+                        globalPlaylist.bulkAdd(songs);
+
+                    }
+
+                    break;
+
+                }
+
+                case 8: {
 
                     System.out.println("Exiting...");
 
@@ -130,6 +160,8 @@ public class Interactions {
                     return;
 
                 }
+
+
                 default: {
 
                     System.out.println("Invalid choice. Please try again.");
@@ -142,7 +174,7 @@ public class Interactions {
 
     }
 
-    // This is a helper function to check user input for the generic menu choice (1-7)
+    // This is a helper function to check user input for the generic menu choice (1-8)
 
     private static int getValidChoice(Scanner scanner) {
 
@@ -157,13 +189,13 @@ public class Interactions {
                 choice = scanner.nextInt();
                 scanner.nextLine();
 
-                if (choice >= 1 && choice <= 7) {
+                if (choice >= 1 && choice <= 8) {
 
                     break;
 
                 } else {
 
-                    System.out.println("Invalid choice. Please choose between 1 and 7.");
+                    System.out.println("Invalid choice. Please choose between 1 and 8.");
 
                 }
 

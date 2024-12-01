@@ -32,7 +32,8 @@ public class MenuDisplayer {
             "║ 4. Create a playlist               ║",
             "║ 5. Display playlist                ║",
             "║ 6. Shuffle playlist                ║",
-            "║ 7. Exit                            ║",
+            "║ 7. Add Genre to Playlist           ║",
+            "║ 8. Exit                            ║",
             "╚════════════════════════════════════╝"
 
     };

@@ -16,15 +16,23 @@ public class Playlist {
     public void create(ArrayList<String> songs) {
 
         this.tracks.clear();
-        tracks.addAll(songs);
+        this.bulkAdd(songs);
 
         System.out.println("Playlist created successfully.");
 
     }
 
+    public void bulkAdd(ArrayList<String> songs) {
+
+        this.tracks.addAll(songs);
+
+        System.out.println("Tracks added to playlist.");
+
+    }
+
     public void display() {
 
-        if (tracks.isEmpty()) {
+        if (this.tracks.isEmpty()) {
 
             System.out.println("The playlist is empty.");
 
@@ -32,7 +40,7 @@ public class Playlist {
 
             System.out.println("Tracks:");
 
-            for (String track : tracks) {
+            for (String track : this.tracks) {
 
                 System.out.println("- " + track);
 
